@@ -1,20 +1,25 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { StyleSheet, Text, View, Button } from "react-native";
-import { Badge } from "react-native-paper";
+import { StyleSheet, Text, View, Button, Dimensions } from "react-native";
+import { Badge, TouchableRipple } from "react-native-paper";
+import Ripple from "react-native-material-ripple";
 
 export default class TopScreen extends React.Component {
+  constructor(props) {
+    super(props);
+    this.size = Dimensions.get("window").width / 6;
+  }
+
   render() {
     return (
       <View style={styles.container}>
         <Text>トップ画面</Text>
         <StatusBar style="auto" />
-        <Badge
-          visible
-          onPress={() => this.props.navigation.navigate("Registration")}
-        >
-          ＋
-        </Badge>
+        <Ripple onPress={() => this.props.navigation.navigate("Registration")}>
+          <Badge size={this.size} visible>
+            ＋
+          </Badge>
+        </Ripple>
       </View>
     );
   }
