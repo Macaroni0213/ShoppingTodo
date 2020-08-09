@@ -1,10 +1,10 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import { createAppContainer } from 'react-navigation';
-import { createStackNavigator } from 'react-navigation-stack';
-import Top from './views/Top';
-import Registration from './views/Registration';
+import { StatusBar } from "expo-status-bar";
+import React from "react";
+import { StyleSheet, Text, View } from "react-native";
+import { createAppContainer } from "react-navigation";
+import { createStackNavigator } from "react-navigation-stack";
+import Top from "./views/Top";
+import Registration from "./views/Registration";
 
 /**
  * 画面をルーティングする
@@ -15,21 +15,21 @@ const RootStack = createStackNavigator(
     Registration
   },
   {
-    initialRouteName: 'Top',
+    initialRouteName: "Top"
   }
 );
 
 const AppContainer = createAppContainer(RootStack);
 
 export default function App() {
-  return (<AppContainer />);
+  return <AppContainer />;
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center"
+  }
 });
