@@ -11,8 +11,18 @@ import Registration from "./src/views/Registration";
  */
 const RootStack = createStackNavigator(
   {
-    Top,
-    Registration
+    Top: {
+      screen: Top,
+      navigationOptions: {
+        title: "買い物リスト"
+      }
+    },
+    Registration: {
+      screen: Registration,
+      navigationOptions: {
+        title: "新規買い物リスト登録"
+      }
+    }
   },
   {
     initialRouteName: "Top"
