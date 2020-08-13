@@ -42,7 +42,7 @@ const Registration = () => {
       <View style={styles.shoppingDate}>
         <Text style={styles.formItemTitle}>買い物をする日</Text>
         <Text style={styles.formItemValue}>{displayDate}</Text>
-        <Icon name="calendar" size={16} onPress={handlePressCalendar} />
+        <Icon name="calendar" size={21} onPress={handlePressCalendar} />
       </View>
       <View>
         {dispDateTimePicker && (
@@ -77,11 +77,11 @@ const styles = StyleSheet.create({
   },
   formItemTitle: {
     fontWeight: "bold",
-    fontSize: 15,
+    fontSize: 20,
     paddingRight: 5
   },
   formItemValue: {
-    fontSize: 15,
+    fontSize: 20,
     paddingRight: 5
   }
 });
