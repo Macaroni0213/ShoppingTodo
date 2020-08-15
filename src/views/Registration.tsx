@@ -2,6 +2,9 @@ import React, { useState, SyntheticEvent } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import STodoDateTimePicker from "./components/STodoDateTimePicker";
 
+/**
+ * 登録画面
+ */
 const Registration = () => {
   // 登録する買い物日付
   const [shoppingDate, setShoppingDate] = useState(new Date());
