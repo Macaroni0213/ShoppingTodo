@@ -4,6 +4,10 @@ import { StyleSheet, Text, View, Button, Dimensions } from "react-native";
 import { Badge, TouchableRipple, FAB } from "react-native-paper";
 import Ripple from "react-native-material-ripple";
 
+/**
+ * トップ画面
+ * @param props
+ */
 const Top = props => {
   const size = Dimensions.get("window").width / 6;
   return (
