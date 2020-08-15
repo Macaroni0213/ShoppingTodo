@@ -5,7 +5,7 @@ import { Badge, TouchableRipple, FAB } from "react-native-paper";
 import Ripple from "react-native-material-ripple";
 
 /**
- * トップ画面
+ * トップ画面です
  * @param props
  */
 const Top = props => {
