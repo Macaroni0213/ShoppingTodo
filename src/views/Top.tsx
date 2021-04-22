@@ -24,28 +24,27 @@ const Top = props => {
     ['a', 'b', 'c', 'd']
   ];
   return (
+   
     <View style={styles.container}>
+       <STodoDateTimePicker
+    dateTimeTitle="買い物をする日"
+    date={shoppingDate}
+    setDate={setShoppingDate}
+  />
+
+        
+
       <View style={styles.plusButton}>
-
         {/* kokokara */}
-
-        <STodoDateTimePicker
-          dateTimeTitle="買い物をする日"
-          date={shoppingDate}
-          setDate={setShoppingDate}
-        />
-
         <TextInput
           style={styles.input}
           editable={false}
         />
-
         <Table borderStyle={{ borderWidth: 1 }}>
           <Row data={tableHead} />
           <Rows data={tableData} />
         </Table>
         {/* kokomade */}
-
         <Ripple onPress={() => props.navigation.navigate("Registration")}>
           <FAB icon="plus">＋</FAB>
         </Ripple>
@@ -91,28 +90,27 @@ const styles = StyleSheet.create({
 
 export default Top;
 
-const styles = StyleSheet.create({
-  container: {
+/* container: {
     flex: 1,
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center"
   },
+*/
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#fff"
+  },
   plusButton: {
     position: "absolute",
     alignSelf: "flex-end"
-  },
-  shoppingDate: {
-    display: "flex",
-    flexDirection: "row",
-    alignItems: "center",
-    marginTop: 5,
-    marginLeft: 5,
-    marginRight: 5
   },
   input: {
     height: 40,
     margin: 12,
     borderWidth: 1,
+    alignItems: "center",
+    justifyContent: "center"
   },
 });
