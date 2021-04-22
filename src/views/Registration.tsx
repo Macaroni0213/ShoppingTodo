@@ -1,9 +1,13 @@
-import React, { useState, SyntheticEvent } from "react";
-import { StyleSheet, Text, View } from "react-native";
-import STodoDateTimePicker from "./components/STodoDateTimePicker";
-import MapView, { Marker, LatLng, MapEvent } from "react-native-maps";
+import React, { useState } from "react";
+import { StyleSheet, View } from "react-native";
+import MapView, { LatLng, MapEvent, Marker, PROVIDER_GOOGLE } from "react-native-maps";
 import Ripple from "react-native-material-ripple";
-import { Badge, TouchableRipple, FAB } from "react-native-paper";
+import { FAB } from "react-native-paper";
+import STodoDateTimePicker from "./components/STodoDateTimePicker";
+// import STodoLisat from "./components/STodoList";
+import { T_BuyThingsApi } from "../apis/T_BuyThingsApi";
+import STodoList from "./components/STodoList";
+import { BuyThing } from "../models/T_BuyThings";
 
 /**
  * 登録画面
@@ -17,6 +21,8 @@ const Registration = () => {
   const [mapTitle, setMapTitle] = useState("");
   // マーカーの位置
   const [mapLatlng, setMapLatlng] = useState<LatLng | null>(null);
+  // 買う物リスト
+  const [buyThings, setBuyThings] = useState<Array<BuyThing>>([]);
 
   return (
     <View style={styles.container}>
@@ -30,11 +36,16 @@ const Registration = () => {
           <FAB icon="map"></FAB>
         </Ripple>
       </View>
-      {makeMapView(displayMap, mapTitle, mapLatlng, setMapLatlng)}
+      {/* <STodoList
+        aryData={buyThings}
+       /> */}
+      {/* ↓TODO 現状使用していないが、後々使う。 */}
+      {/* {makeMapView(displayMap, mapTitle, mapLatlng, setMapLatlng)} */}
     </View>
   );
 };
 
+// TO-DO 現状使用していないが、後々使う。
 const makeMapView = (
   displayMap: boolean,
   mapTitle: string,
@@ -42,14 +53,16 @@ const makeMapView = (
   setMapLatlng: Function
 ) => {
   const handleOnpPress = (event: MapEvent) => {
-    console.log(event);
+    console.log("マップ押下");
     setMapLatlng(event.nativeEvent.coordinate);
   };
+
   if (displayMap) {
     return (
       <View style={styles.mapView}>
         <MapView
           style={styles.mapView}
+          provider={PROVIDER_GOOGLE}
           initialRegion={{
             latitude: 36.28825,
             longitude: 136.7324,
