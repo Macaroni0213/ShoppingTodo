@@ -20,14 +20,19 @@ const Top = props => {
   /**
    * 
    */
-  const [tableData, setTableData] = useState([0, '商品']);
+  const [tableData, setTableData] = useState([[0, '商品']]);
   const [placeShopping, setPlaceShopping] = useState<string|undefined>('');
   
 
   const tableHandler = async () => {
     let arrayBuyThings = await getAll();    
     console.log('tableHandler開始');
-    setTableData([arrayBuyThings[0].buyThings[0].nameBuyThing, arrayBuyThings[0].buyThings[0].countBuyThing]);
+    let datas = [];
+    arrayBuyThings[0].buyThings.map(data => {
+      datas.push([data.nameBuyThing, data.countBuyThing]);
+    });
+    // setTableData([arrayBuyThings[0].buyThings[0].nameBuyThing, arrayBuyThings[0].buyThings[0].countBuyThing]);
+    setTableData(datas);
     setPlaceShopping(arrayBuyThings[0].placeShopping);
   };
   return (
@@ -48,7 +53,7 @@ const Top = props => {
         本来onloadに記載すべきだが、実装中にonloadで記載してしまうと毎回動くので料金が発生するため
         ボタンを押下時の処理として一時的に登録するものとする*/}
       <Table borderStyle={{ borderWidth: 1 }}>
-        <Rows data={[tableData]} />
+        <Rows data={tableData} />
       </Table>
       <View style={styles.plusButton}>
         <Ripple onPress={tableHandler}>
